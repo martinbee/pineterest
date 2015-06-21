@@ -1,0 +1,30 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="title col-xs-11">
+      <h1><%= @pin.title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="image col-xs-8">
+      <%= image_tag @pin.photo.url(:pin) %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="content col-xs-11">
+      <p><%= @pin.content %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="link col-xs-11">
+      <p><%= auto_link(truncate(@pin.link, length:30)) %></p>
+    </div>
+  </div>
+  <% if @current_user == @pin.user %>
+    <div class="row">
+      <div class="edit-delete col-xs-11">
+        <a class= "btn btn-primary">edit</a>
+        <a class= "btn btn-primary">delete<a>
+      </div>
+    </div>
+  <% end %>
+</div>
