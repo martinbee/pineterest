@@ -1,0 +1,11 @@
+<div class="row">
+  <%= simple_form_for @pin, remote: true do |f| %>
+    <div class= "col-xs-8 col-xs-offset-2">
+      <%= f.input :title, label:false, placeholder: "Title"%>
+      <%= f.input :photo, label: "Pine Photo" %>
+      <%= f.input :link, label:false, placeholder:"Link" %>
+      <%= f.input :content, as: :text , label:false, placeholder:"Content" %>
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

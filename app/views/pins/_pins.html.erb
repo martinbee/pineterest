@@ -1,0 +1,9 @@
+<div class="row">
+  <% @pins.each do |pin| %>
+    <div class="col-s-12 col-md-4 col-md-offset-1">
+      <div class="thumbnail">
+        <%= image_tag pin.photo.url(:pin) %>
+      </div>
+    </div>
+  <% end %>
+</div>

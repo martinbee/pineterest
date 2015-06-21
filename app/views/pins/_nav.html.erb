@@ -18,7 +18,7 @@
             <li><%= link_to "Log In", :sign_in %></li>
             <li><%= link_to "Join", :sign_up %></li>
           <% else %>
-            <li><a class="btn btn-primary btn-lg">new post </a></li>
+            <li><%= link_to "New Pine", :open_new_pin_modal, remote: true, class: "btn btn-default" %></li>
             <li><%= link_to "Log Out", :sign_out, method: :delete %></li>
           <% end %>
         </ul>
