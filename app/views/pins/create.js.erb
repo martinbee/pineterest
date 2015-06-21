@@ -1,6 +1,6 @@
 <% if @pin.errors.none? %>
-  $("#new-pin-modal").modal("hide");
+  $("#pin-modal").modal("hide");
   $("#pins").html("<%= j render partial: 'pins' %>");
 <% else %>
-  $("#new-pin-modal .modal-body").html("<%= j render partial: 'form' %>");
+  $("#pin-modal .modal-body").html("<%= j render partial: 'form' %>");
 <% end %>

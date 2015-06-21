@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   root 'pins#index'
-  get 'sign-up' => 'users#new', as: :sign_up
+  # get 'sign-up' => 'users#new', as: :sign_up
+  get 'sign-up' => 'users#new', as: :new_user_modal
   post 'sign-up' => 'users#create', as: :users
-  get 'sign-in' => 'session#new', as: :sign_in
+  get 'sign-in' => 'session#new', as: :new_session_modal
   post 'sign-in' => 'session#create', as: :auth
   delete 'sign-out' => 'session#destroy', as: :sign_out
   get 'pine/new/' => 'pins#open_form_modal', as: :open_new_pin_modal

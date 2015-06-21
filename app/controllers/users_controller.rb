@@ -8,9 +8,6 @@ class UsersController < ApplicationController
     @user = User.new params.require(:user).permit(:username, :email, :password, :password_confirmation)
     if @user.save
       log_in(@user)
-      redirect_to :root, notice: "Welcome to Pineterest, #{@user.username}!"
-    else
-      render :new
     end
   end
 

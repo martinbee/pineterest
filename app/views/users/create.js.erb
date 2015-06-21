@@ -1,0 +1,7 @@
+<% if @user.errors.none? %>
+  $("#pin-modal").modal("hide");
+  <% @current_user = User.find_by(id: session[:user_id]) %>
+  $(".nav-partial").html("<%= j render partial: 'pins/nav' %>");
+<% else %>
+  $("#pin-modal .modal-body").html("<%= j render partial: 'new' %>");
+<% end %>
