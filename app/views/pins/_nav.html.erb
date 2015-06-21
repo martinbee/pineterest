@@ -1,27 +1,20 @@
-<nav class="navbar navbar-default .navbar-fixed-top">
-  <div class="container">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Brand</a>
+<div class="container">
+  <% if @current_user.nil? %>
+    <div class="row">
+      <div class="nav-btn">
+        <%= link_to "Log In", :new_session_modal, remote:true, class: "btn btn-lg" %>
       </div>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav pull-right">
-          <% if @current_user.nil? %>
-            <li><%= link_to "Log In", :new_session_modal, remote:true %></li>
-          <% else %>
-            <li><%= link_to "New Pine", :open_new_pin_modal, remote: true, class: "btn btn-default" %></li>
-            <li><%= link_to "Log Out", :sign_out, method: :delete %></li>
-          <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </div>
-</nav>
+    </div>
+  <% else %>
+    <div class="row">
+      <div class="nav-btn" id="smaller-margin">
+        <%= link_to "Log Out", :sign_out, method: :delete, class: "btn btn-lg"  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="nav-btn">
+        <%= link_to "New Pine", :open_new_pin_modal, remote: true, class: "btn btn-lg" %>
+      </div>
+    </div>
+  <% end %>
+</div>
