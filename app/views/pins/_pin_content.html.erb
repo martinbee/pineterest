@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <div class="image col-xs-8">
-      <%= image_tag @pin.photo.url(:pin) %>
+      <%= image_tag @pin.photo.url(:pin), class: "img-responsive" %>
     </div>
   </div>
   <div class="row">
@@ -19,11 +19,16 @@
       <p><%= auto_link(truncate(@pin.link, length:30)) %></p>
     </div>
   </div>
+  <div class="row">
+    <div class="link col-xs-11">
+      <p>Pine pinned <%= distance_of_time_in_words_to_now(@pin.created_at) %> ago by <%=@pin.user.username %></p>
+    </div>
+  </div>
   <% if @current_user == @pin.user %>
     <div class="row">
       <div class="edit-delete col-xs-11">
-        <a class= "btn btn-primary">edit</a>
-        <a class= "btn btn-primary">delete<a>
+        <%= link_to "Edit", :edit, remote: true, class: "btn btn-primary" %>
+        <%= link_to "Delete", :delete, method: :delete, remote: true, class: "btn btn-primary" %>
       </div>
     </div>
   <% end %>

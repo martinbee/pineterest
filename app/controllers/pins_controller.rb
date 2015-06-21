@@ -19,6 +19,23 @@ class PinsController < ApplicationController
     @pins = Pin.all.order("created_at asc")
   end
 
+  def edit
+    @pin = Pin.find(params[:id])
+  end
+
+  def update
+    @pin = Pin.find(params[:id])
+    @pin.update pin_params
+    @pins = Pin.all.order("created_at asc")
+  end
+
+  def delete
+    @pin = Pin.find(params[:id])
+    @pin.destroy
+    @pins = Pin.all.order("created_at asc")
+  end
+
+
   private
 
   def pin_params

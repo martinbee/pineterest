@@ -3,12 +3,18 @@ Rails.application.routes.draw do
   # get 'sign-up' => 'users#new', as: :sign_up
   get 'sign-up' => 'users#new', as: :new_user_modal
   post 'sign-up' => 'users#create', as: :users
+
   get 'sign-in' => 'session#new', as: :new_session_modal
   post 'sign-in' => 'session#create', as: :auth
   delete 'sign-out' => 'session#destroy', as: :sign_out
+
   get 'pine/new/' => 'pins#open_form_modal', as: :open_new_pin_modal
   post 'pine/create' => 'pins#create', as: :pins
   get 'pine/:id' => 'pins#open_pin_modal', as: :open_pin_modal
+  get 'pine/:id/edit' => 'pins#edit', as: :edit
+  patch 'pine/:id/update' => 'pins#update', as: :pin
+  delete 'pine/:id' => 'pins#delete', as: :delete
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,6 @@
+<% if @pin.errors.none? %>
+  $("#pin-modal").modal("hide");
+  $("#pins").html("<%= j render partial: 'pins' %>");
+<% else %>
+  $("#pin-modal .modal-body").html("<%= j render partial: 'edit_form' %>");
+<% end %>

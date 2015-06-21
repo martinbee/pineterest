@@ -1,0 +1,12 @@
+<div class="row">
+  <h3 id="form-title">Edit <%= @pin.title %></h3>
+  <%= simple_form_for @pin, remote: true do |f| %>
+    <div class= "col-xs-10 col-xs-offset-1">
+      <%= f.input :title, label:false, placeholder: "Title"%>
+      <%= f.input :photo, label: "Pine Photo" %>
+      <%= f.input :link, label:false, placeholder:"Link" %>
+      <%= f.input :content, as: :text , label:false, placeholder:"Content" %>
+      <%= f.submit "Update Pine", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
