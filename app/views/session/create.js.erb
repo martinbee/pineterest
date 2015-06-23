@@ -1,6 +1,5 @@
-<% password = params[:session][:password] %>
 
-<% if (@user) && (@user.authenticate password) %>
+<% if (@user) && (@user.authenticate @password) %>
   $("#pin-modal").modal("hide");
   <% session[:user_id] = @user.id %>
   <% @current_user = User.find_by(id: session[:user_id]) %>

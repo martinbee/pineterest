@@ -6,7 +6,7 @@ class SessionController < ApplicationController
 
   def create
     email = params[:session][:email]
-    password = params[:session][:password]
+    @password = params[:session][:password]
     @user = User.find_by(email: email)
   end
 
